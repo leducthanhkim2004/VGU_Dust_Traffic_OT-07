@@ -102,7 +102,6 @@ detectionNetwork.passthrough.link(xoutRgb.input)
 detectionNetwork.out.link(nnOut.input)
 
 # Setup data logging
-epoch_time = int(round(time.time()))+25200                                                                                
 folder_name = '/home/leducthanhkim/VGU-Rangers-2023-main'                                                            
 data_filename = f'{folder_name}/output_count_car_{datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S")}.csv'                  
 node_name = "default-node"
@@ -148,6 +147,8 @@ with dai.Device(pipeline) as device:
     while True:
         inRgb = qRgb.get()
         inDet = qDet.get()
+        epoch_time = int(round(time.time()))+25200                                                                                
+
 
         if inRgb is not None:
             frame = inRgb.getCvFrame()
